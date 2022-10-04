@@ -62,3 +62,7 @@ C:\projetos\TestDiamond\DiamondWebAPI\obj\Debug\net5.0\DiamondWebAPI.pdb
 C:\projetos\TestDiamond\DiamondWebAPI\obj\Debug\net5.0\DiamondWebAPI.genruntimeconfig.cache
 C:\projetos\TestDiamond\DiamondWebAPI\obj\Debug\net5.0\ref\DiamondWebAPI.dll
 C:\projetos\TestDiamond\DiamondWebAPI\bin\Debug\net5.0\FluentAssertions.dll
+C:\projetos\TestDiamond\DiamondWebAPI\bin\Debug\net5.0\DataBase.dll
+C:\projetos\TestDiamond\DiamondWebAPI\bin\Debug\net5.0\Services.dll
+C:\projetos\TestDiamond\DiamondWebAPI\bin\Debug\net5.0\DataBase.pdb
+C:\projetos\TestDiamond\DiamondWebAPI\bin\Debug\net5.0\Services.pdb

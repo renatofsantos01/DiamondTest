@@ -1,0 +1,15 @@
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.csproj.AssemblyReference.cache
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.GeneratedMSBuildEditorConfig.editorconfig
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.AssemblyInfoInputs.cache
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.AssemblyInfo.cs
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.csproj.CoreCompileInputs.cache
+C:\projetos\TestDiamond\DataBase\bin\Debug\net5.0\DataBase.deps.json
+C:\projetos\TestDiamond\DataBase\bin\Debug\net5.0\DataBase.dll
+C:\projetos\TestDiamond\DataBase\bin\Debug\net5.0\DataBase.pdb
+C:\projetos\TestDiamond\DataBase\bin\Debug\net5.0\Domain.dll
+C:\projetos\TestDiamond\DataBase\bin\Debug\net5.0\Domain.pdb
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.csproj.CopyComplete
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.dll
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\refint\DataBase.dll
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\DataBase.pdb
+C:\projetos\TestDiamond\DataBase\obj\Debug\net5.0\ref\DataBase.dll

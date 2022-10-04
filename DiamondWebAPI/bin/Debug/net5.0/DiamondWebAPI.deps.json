@@ -33,11 +33,13 @@
     ".NETCoreApp,Version=v5.0": {
       "DiamondWebAPI/1.0.0": {
         "dependencies": {
+          "DataBase": "1.0.0",
           "Domain": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.17",
           "Microsoft.EntityFrameworkCore.InMemory": "5.0.17",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.17",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.17",
+          "Services": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",
@@ -1406,6 +1408,18 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "DataBase/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.17"
+        },
+        "runtime": {
+          "DataBase.dll": {}
+        },
+        "compile": {
+          "DataBase.dll": {}
+        }
+      },
       "Domain/1.0.0": {
         "dependencies": {
           "FluentAssertions": "6.7.0",
@@ -1418,6 +1432,18 @@
         },
         "compile": {
           "Domain.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "dependencies": {
+          "DataBase": "1.0.0",
+          "Domain": "1.0.0"
+        },
+        "runtime": {
+          "Services.dll": {}
+        },
+        "compile": {
+          "Services.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3849,7 +3875,17 @@
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
+    "DataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

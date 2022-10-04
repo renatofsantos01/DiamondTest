@@ -1,14 +1,14 @@
-using Domain.Data;
+using DataBase.Context;
 using Domain.Interfaces;
-using Domain.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System.Text.Json.Serialization;
+using Services.Repositories;
 
 namespace DiamondWebAPI
 {
@@ -27,9 +27,10 @@ namespace DiamondWebAPI
 
             services.AddControllers();
 
-            services.AddDbContext<DiamondContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DiamondConnection")));
-
+            services.AddDbContext<DiamondContext>(options => options.UseInMemoryDatabase("DiamondConnection")
+        .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning)));
             services.AddScoped<IDiamondRepository, DiamondRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
 
             services.AddSwaggerGen(c =>
             {

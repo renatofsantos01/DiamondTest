@@ -9,10 +9,10 @@ namespace Domain.Interfaces
 {
     public interface IDiamondRepository
     {
-        Task<Diamond> CreateLivroAsync(Diamond diamond);
-        Task<bool> DeleteDiamondAsync(int id);
-        Task<IEnumerable<Diamond>> GetAllDiamondAsync();
-        Task<Diamond> GetByIdAsync(int id);
+        Task<Diamond> CreateDiamondAsync(Diamond diamond);
+        Task<bool> DeleteDiamondAsync(int? id);
+        Task<IEnumerable<Diamond>> GetAllAsync();
+        Task<Diamond> GetByIdAsync(int? id);
         Task<Diamond> UpdateDiamondAsync(Diamond diamond);
     }
 }
