@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace DiamondWebAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
-
     public class DiamondController : ControllerBase
     {
         private readonly IDiamondRepository Repository;
+
         public DiamondController(IDiamondRepository repository)
         {
             Repository = repository;
         }
 
-        //GET api/<DiamondController/GetALL>
+        //GET api/<DiamondController/GetAllDiamonds
         [HttpGet("GetAll")]
         public async Task<ActionResult> GetAll()
         {
-            
             IEnumerable<Diamond> diamonds = await Repository.GetAllAsync();
             if (!diamonds.Any())
             {
@@ -35,15 +35,13 @@ namespace DiamondWebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult> GetById(int? id)
         {
-           
             Diamond diamond = await Repository.GetByIdAsync(id);
-            if(diamond != null)
+            if (diamond != null)
             {
                 return Ok(diamond);
             }
-            return BadRequest("diamond não encontrado");
+            return BadRequest("diamond not found");
         }
-            
 
         // POST api/<DiamondController>/Create
         [HttpPost("Create")]
@@ -57,7 +55,7 @@ namespace DiamondWebAPI.Controllers
             return Ok(diamondcreated);
         }
 
-        // PUT api/<DiamondController>/Diamond
+        // PUT api/<DiamondController>/UpdateDiamond
         [HttpPut("Update")]
         public async Task<IActionResult> Update(Diamond diamond)
         {
@@ -65,20 +63,20 @@ namespace DiamondWebAPI.Controllers
             {
                 return NotFound();
             }
-            Diamond diamondupdated = await Repository.UpdateDiamondAsync(diamond);           
+            Diamond diamondupdated = await Repository.UpdateDiamondAsync(diamond);
             return Ok(diamondupdated);
         }
 
-        //DELETE api/Controller/Delete
+        //DELETE api/Controller/DeleteDiamond
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int? id)
         {
-            if(id == null)
+            if (id == null)
             {
                 return BadRequest("Diamond Not Found");
             }
             await Repository.DeleteDiamondAsync(id);
-            return Ok("Deletado com Sucesso");
+            return Ok("Deleted");
         }
     }
 }

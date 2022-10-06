@@ -3,12 +3,12 @@ using Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Services.Repositories;
+using System.Text.Json.Serialization;
 
 namespace DiamondWebAPI
 {
@@ -25,10 +25,16 @@ namespace DiamondWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddDbContext<DiamondContext>(options => options.UseInMemoryDatabase("DiamondConnection")
-        .ConfigureWarnings(b => b.Ignore(InMemoryEventId.TransactionIgnoredWarning)));
+            services.AddControllers().AddJsonOptions(options =>
+    { options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
+
+
+            services.AddDbContext<DiamondContext>(options => options.UseInMemoryDatabase("DiamondDb"));
+
             services.AddScoped<IDiamondRepository, DiamondRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
 

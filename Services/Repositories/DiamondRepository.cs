@@ -15,7 +15,6 @@ namespace Services.Repositories
         {
             Context = context;
         }
-
         public async Task<IEnumerable<Diamond>> GetAllAsync()
         {
             List<Diamond> diamonds = await Context.Diamonds.Include(x => x.Retailer).Include(x=>x.Images)
@@ -32,12 +31,8 @@ namespace Services.Repositories
             return diamond;
         }
         public async Task<Diamond> CreateDiamondAsync(Diamond diamond)
-        {       
-            await Context.AddAsync(diamond);
-            foreach(var item in diamond.Images)
-            {
-                diamond.ImageId= item.Id;
-            }
+        {     
+            await Context.AddAsync(diamond);           
             await Context.SaveChangesAsync();
             return diamond;
         }
@@ -52,7 +47,6 @@ namespace Services.Repositories
             await Context.SaveChangesAsync();
             return diamond;
         }
-
         public async Task<bool> DeleteDiamondAsync(int? id)
         {
             Diamond diamond = await Context.Diamonds.Include(x => x.Retailer).Include(x=>x.Images)

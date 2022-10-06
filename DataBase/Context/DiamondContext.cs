@@ -12,6 +12,5 @@ namespace DataBase.Context
         public DbSet<Diamond> Diamonds { get; set; }
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<Image> Images { get; set; }
-
     }
 }
