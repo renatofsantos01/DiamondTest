@@ -36,16 +36,23 @@ namespace Services.Repositories
             await Context.SaveChangesAsync();
             return diamond;
         }
-        public async Task<Diamond> UpdateDiamondAsync(Diamond diamond)
+        public async Task<Diamond> UpdateDiamondAsync(int?id,Diamond diamond)
         {
-            Context.Update(diamond);
-            Context.Update(diamond.Retailer);
-            foreach(var item in diamond.Images)
-            {
-              Context.Update(item);
-            }
+
+            Context.Diamonds.Update(diamond);
+            Context.Entry(diamond).State = EntityState.Modified;
+
             await Context.SaveChangesAsync();
-            return diamond;
+
+            return await GetByIdAsync(diamond.Id);
+            //Context.Update(diamond);
+            //Context.Update(diamond.Retailer);
+            //foreach(var item in diamond.Images)
+            //{
+            //  Context.Update(item);
+            //}
+            //await Context.SaveChangesAsync();
+            //return diamond;
         }
         public async Task<bool> DeleteDiamondAsync(int? id)
         {
@@ -59,5 +66,6 @@ namespace Services.Repositories
             Context.Diamonds.Remove(diamond);
             return await Context.SaveChangesAsync() > 0;
         }
+
     }
 }

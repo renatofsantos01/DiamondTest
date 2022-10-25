@@ -57,13 +57,13 @@ namespace DiamondWebAPI.Controllers
 
         // PUT api/<DiamondController>/UpdateDiamond
         [HttpPut("Update")]
-        public async Task<IActionResult> Update(Diamond diamond)
+        public async Task<IActionResult> Update(int?id,Diamond diamond)
         {
             if (diamond == null)
             {
                 return NotFound();
             }
-            Diamond diamondupdated = await Repository.UpdateDiamondAsync(diamond);
+            Diamond diamondupdated = await Repository.UpdateDiamondAsync(id,diamond);
             return Ok(diamondupdated);
         }
 
