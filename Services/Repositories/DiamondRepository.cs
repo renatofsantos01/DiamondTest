@@ -23,7 +23,8 @@ namespace Services.Repositories
         }
         public async Task<Diamond> GetByIdAsync(int? id)
         {
-            Diamond diamond = await Context.Diamonds.Include(e => e.Retailer).Include(x => x.Images).FirstOrDefaultAsync(x => x.Id == id && x.RetailerId==id);
+ 
+            Diamond diamond = await Context.Diamonds.FirstOrDefaultAsync(x=>x.Id==id);
             if (diamond == null)
             {
                 return null;
@@ -45,14 +46,7 @@ namespace Services.Repositories
             await Context.SaveChangesAsync();
 
             return await GetByIdAsync(diamond.Id);
-            //Context.Update(diamond);
-            //Context.Update(diamond.Retailer);
-            //foreach(var item in diamond.Images)
-            //{
-            //  Context.Update(item);
-            //}
-            //await Context.SaveChangesAsync();
-            //return diamond;
+          
         }
         public async Task<bool> DeleteDiamondAsync(int? id)
         {

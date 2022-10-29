@@ -37,6 +37,7 @@ namespace DiamondWebAPI
 
             services.AddScoped<IDiamondRepository, DiamondRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<IRetailerRepository, RetailerRepository>();
 
             services.AddSwaggerGen(c =>
             {

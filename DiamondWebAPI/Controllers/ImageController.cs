@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DiamondWebAPI.Controllers
 {
+
+    [Route("api/[controller]")]
+    [ApiController]
     public class ImageController : Controller
     {
 
